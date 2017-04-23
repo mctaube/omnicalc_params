@@ -1,7 +1,7 @@
 <h1> Payment Results </h1>
 
 <div> <b>APR</b> </div>
-<div> <%= @interest %>% </div>
+<div> <%= number_to_percentage(@interest, :precision => 4) %> </div>
 <div> <b> Number of years </b> </div>
 <div> <%= @years %> </div>
 <div> <b> Principal </b> </div>
