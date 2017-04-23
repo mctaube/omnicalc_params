@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   # random number
   get("/flexible/random/:min/:max", { :controller => "calculations", :action => "flex_random"})
-get("/random/new", { :controller => "calculations", :action => "random_form"})
-get("/random/results", { :controller => "calculations", :action => "random"})
-
+  get("/random/new", { :controller => "calculations", :action => "random_form"})
+  get("/random/results", { :controller => "calculations", :action => "random"})
+  
 end
