@@ -54,4 +54,13 @@ class CalculationsController < ApplicationController
     render ("calculations/payment.html.erb")
   end
 
+  # random calculations
+  def flex_random
+    @min = (params["min"].to_f)
+    @max = (params["max"].to_f)
+    @random = rand(@min..@max)
+
+    render ("calculations/flex_random.html.erb")
+  end
+
 end

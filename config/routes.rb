@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   get("/payment/new", { :controller => "calculations", :action => "payment_form"})
   get("/payment/results", { :controller => "calculations", :action => "payment"})
 
-  
+  # random number
+  get("/flexible/random/:min/:max", { :controller => "calculations", :action => "flex_random"})
+
+
 end
