@@ -1,1 +1,3 @@
-<h1> A <%= @years %> year loan of <%= @principal %> with an annual interest rate of <%= @interest %>%, requires a monthly payment of $<%= @payments %>. </h1>
+<h1> Flexible Payment </h1>
+
+A <%= @years.to_i %> year loan of $<%= number_with_precision(@principal, :precision => 0, :delimiter => ',') %> with an annual interest rate of <%= number_with_precision(@interest , :precision => 2) %>%, requires a monthly payment of $<%= number_with_precision(@payments, :precision => 2, :delimiter => ',') %>.

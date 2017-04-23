@@ -37,7 +37,7 @@ class CalculationsController < ApplicationController
   def flex_payment
     @interest = (params["basis_points"].to_f)/100
     @years = params["number_of_years"].to_f
-    @principal = params["present_value"].to_f
+    @principal = params["present_value"].to_i
     @payments =((@interest/100/12)*@principal)/(1-((1+@interest/100/12))**(-@years*12))
     render("calculations/flex_payment.html.erb")
   end
@@ -49,18 +49,29 @@ class CalculationsController < ApplicationController
   def payment
     @interest = (params[:interest_rate].to_f)
     @years = params[:years].to_f
-    @principal = params[:principal].to_f
+    @principal = params[:principal].to_i
     @payments =((@interest/100/12)*@principal)/(1-((1+@interest/100/12))**(-@years*12))
     render ("calculations/payment.html.erb")
   end
 
   # random calculations
   def flex_random
-    @min = (params["min"].to_f)
-    @max = (params["max"].to_f)
-    @random = rand(@min..@max)
+    @min = (params["min"].to_i)
+    @max = (params["max"].to_i)
+    @random = rand(@min..@max).to_f
 
     render ("calculations/flex_random.html.erb")
+  end
+
+  def random_form
+    render("calculations/random_form.html.erb")
+  end
+
+  def random
+    @min = (params[:min].to_f)
+    @max = (params[:max].to_f)
+    @random = rand(@min..@max).to_f
+    render ("calculations/random.html.erb")
   end
 
 end
